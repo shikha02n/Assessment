@@ -1,0 +1,9 @@
+<mat-card>
+  <form (submit)="analyse(ingredientForm)" #ingredientForm="ngForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Enter Ingredients with , separated quantity</mat-label>
+      <textarea matInput ngModel name="ingredients" required></textarea>
+    </mat-form-field>
+    <button type="submit" [disabled]="ingredientForm.invalid" mat-raised-button color="primary">Analyse</button>
+  </form>
+</mat-card>
