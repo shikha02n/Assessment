@@ -1,0 +1,39 @@
+<mat-list>
+  <mat-list-item>
+    <span>Calories:</span> {{ nutritions.ENERC_KCAL.quantity | number: "1.2-2"
+    }}{{ nutritions.ENERC_KCAL.unit }}
+  </mat-list-item>
+  <mat-list-item
+    ><span>Fat:</span> {{ nutritions.FAT.quantity | number: "1.2-2"
+    }}{{ nutritions.FAT.unit }}</mat-list-item
+  >
+  <mat-list-item
+    ><span>Cholesterol:</span> {{ nutritions.CHOLE.quantity | number: "1.2-2"
+    }}{{ nutritions.CHOLE.unit }}</mat-list-item
+  >
+  <mat-list-item
+    ><span>Sodium:</span> {{ nutritions.NA.quantity | number: "1.2-2"
+    }}{{ nutritions.NA.unit }}</mat-list-item
+  >
+  <mat-list-item
+    ><span>Carbohydrate (Fiber, Sugar):</span>
+    {{ nutritions.CHOCDF.quantity | number: "1.2-2"
+    }}{{ nutritions.CHOCDF.unit }}</mat-list-item
+  >
+  <mat-list-item
+    ><span>Protein:</span> {{ nutritions.PROCNT.quantity | number: "1.2-2"
+    }}{{ nutritions.PROCNT.unit }}</mat-list-item
+  >
+  <mat-list-item
+    ><span>Calcium:</span> {{ nutritions.CA.quantity | number: "1.2-2"
+    }}{{ nutritions.CA.unit }}</mat-list-item
+  >
+  <mat-list-item
+    ><span>Iron:</span> {{ nutritions.FE.quantity | number: "1.2-2"
+    }}{{ nutritions.FE.unit }}</mat-list-item
+  >
+  <mat-list-item
+    ><span>Potassium:</span> {{ nutritions.K.quantity | number: "1.2-2"
+    }}{{ nutritions.K.unit }}</mat-list-item
+  >
+</mat-list>

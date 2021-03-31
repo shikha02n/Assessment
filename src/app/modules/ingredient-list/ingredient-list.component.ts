@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AppService } from 'src/app/app.service';
+import { IngredientService } from 'src/app/services/ingredient.service';
 
 @Component({
   selector: 'app-ingredient-list',
@@ -8,17 +8,26 @@ import { AppService } from 'src/app/app.service';
   styleUrls: ['./ingredient-list.component.css']
 })
 export class IngredientListComponent implements OnInit {
-  ingredientList: [];
+  ingredientList: Array<Object>;
+  showTotal = false;
+  displayedColumns = ['quantity', 'measure', 'foodMatch', 'cal', 'weight'];
+
   constructor(
-    private appService: AppService,
+    private ingredientService: IngredientService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.ingredientList = this.appService.getIngredientList();
+    this.ingredientService.getIngredientList().subscribe(result => {
+      this.ingredientList = result;
+    });
     if (!this.ingredientList) {
       this.router.navigate(['add']);
     }
+  }
+
+  showTotalNutrition() {
+    this.showTotal = true;
   }
 
 }

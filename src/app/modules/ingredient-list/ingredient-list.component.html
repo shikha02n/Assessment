@@ -1,0 +1,26 @@
+<mat-card style="overflow-x: auto">
+  <table>
+    <tr>
+      <td *ngFor="let col of displayedColumns">{{ col }}</td>
+    </tr>
+    <tr *ngFor="let item of ingredientList">
+      <td *ngFor="let col of displayedColumns">
+        <span *ngIf="(col === 'cal' || col === 'weight');else strings">
+          {{ item[col] | number: '1.1-1' }}
+        </span>
+        <ng-template #strings>
+          <span>
+            {{ item[col] }}
+          </span>
+        </ng-template>
+      </td>
+    </tr>
+  </table>
+  <button mat-raised-button color="primary" (click)="showTotalNutrition()">
+    Total Nutrition
+  </button>
+</mat-card>
+
+<mat-card *ngIf="showTotal">
+  <app-nutrition></app-nutrition>
+</mat-card>

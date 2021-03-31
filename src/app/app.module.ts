@@ -11,31 +11,32 @@ import { MatListModule } from '@angular/material/list';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { IngredientListComponent } from './components/ingredient-list/ingredient-list.component';
-import { NutritionComponent } from './components/nutrition/nutrition.component';
-import { AddIngredientsComponent } from './components/add-ingredients/add-ingredients.component';
 
 import { routes } from './app.routing';
-import { AppService } from './app.service';
+import { IngredientService } from './services/ingredient.service';
+import { AddIngredientsModule } from './modules/add-ingredients/add-ingredients.module';
+import { IngredientListModule } from './modules/ingredient-list/ingredient-list.module';
+import { ApiService } from './services/api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    IngredientListComponent,
-    NutritionComponent,
-    AddIngredientsComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     MatInputModule,
     MatCardModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    AddIngredientsModule,
+    IngredientListModule
   ],
-  providers: [AppService],
+  providers: [IngredientService, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

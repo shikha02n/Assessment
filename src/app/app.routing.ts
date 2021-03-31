@@ -1,15 +1,13 @@
 import { Routes } from "@angular/router";
-import { AddIngredientsComponent } from "./components/add-ingredients/add-ingredients.component";
-import { IngredientListComponent } from "./components/ingredient-list/ingredient-list.component";
 
 export const routes: Routes = [
   {
     path: 'add',
-    component: AddIngredientsComponent
+    loadChildren: () => import('./modules/add-ingredients/add-ingredients.module').then(m => m.AddIngredientsModule)
   },
   {
     path: 'list',
-    component: IngredientListComponent
+    loadChildren: () => import('./modules/ingredient-list/ingredient-list.module').then(m => m.IngredientListModule)
   },
   {
     path: '**',
